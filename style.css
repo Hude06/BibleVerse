@@ -10,10 +10,10 @@ h1 {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 65vh;
+    margin-left: 55vh;
     margin-top: -200px;
-    background-color: red;
-    width: 75px;
+    background-color: black;
+    width: 29px;
 }
 .heart {
     border: 0px;    
@@ -65,7 +65,6 @@ h1 {
     overflow-x: hidden;
     height: 100vh;
     position: relative;
-    border: 2px solid yellow;
 }
 .reel {
     margin-bottom: 200px; /* Adjust the margin to create space between reels */
