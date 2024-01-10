@@ -14,7 +14,16 @@ function createNewReel() {
   const textParagraph = document.createElement('p');
   textParagraph.className = 'text';
   textParagraph.id = 'text' + (document.getElementsByClassName('text').length + 1);
-
+  
+  fetchVerse()
+    .then(result => {
+      textParagraph.innerHTML = result;
+      console.log(result); // You can log the result here if needed
+    })
+    .catch(error => {
+      console.error(error);
+      // Handle errors if necessary
+    });
   // Append the text paragraph to the verse div
   verseDiv.appendChild(textParagraph);
 
@@ -47,11 +56,11 @@ function createNewReel() {
   newReel.appendChild(actionsDiv);
 
   // Append the new reel to the container (replace 'containerId' with the actual container ID)
-  fetchVerse()
   document.getElementById('fullscreen').appendChild(newReel);
 }
 
 // Call the function to create a new reel
+createNewReel();
 createNewReel();
 
 function checkAndMoveReel() {
@@ -71,20 +80,15 @@ function checkAndMoveReel() {
 // Attach the checkAndMoveReel function to a scroll event listener
 document.getElementById("fullscreen").addEventListener('scroll', checkAndMoveReel);
 
-function fetchVerse() {
-  fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    // Parse the response and extract the relevant information
+async function fetchVerse() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
     const verseText = data[0].text;
     const verseReference = data[0].bookname + ' ' + data[0].chapter + ':' + data[0].verse;
-
-    // Display the verse on your webpage or console
-    console.log(verseText + verseReference);
-    let HTMLText = document.getElementById("text" + currentReel);
-    console.log(HTMLText)
-    HTMLText.innerHTML = verseText + verseReference;
-    console.log(HTMLText);
-  })
-  .catch(error => console.error('Error fetching Bible verse:', error));
+    return verseText + verseReference;
+  } catch (error) {
+    console.error('Error fetching Bible verse:', error);
+    throw error; // Propagate the error
+  }
 }
