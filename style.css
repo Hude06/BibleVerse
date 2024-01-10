@@ -62,9 +62,10 @@ h1 {
 }
 #fullscreen {
     overflow-y: scroll;
-    overflow-y: hidden;
+    overflow-x: hidden;
     height: 100vh;
     position: relative;
+    border: 2px solid yellow;
 }
 .reel {
     margin-bottom: 200px; /* Adjust the margin to create space between reels */
