@@ -18,7 +18,6 @@ function createNewReel() {
   fetchVerse()
     .then(result => {
       textParagraph.innerHTML = result;
-      console.log(result); // You can log the result here if needed
     })
     .catch(error => {
       console.error(error);
@@ -72,7 +71,6 @@ function checkAndMoveReel() {
     const reelRect = reels[i].getBoundingClientRect();
     if (reelRect.top < -725) {
       createNewReel();
-      
     }
   }
 }
