@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tauri-apps/api": "^2.0.0-alpha.14",
+    "@tauri-apps/cli": "^2.0.0-alpha.21",
     "cors": "^2.8.5",
     "express": "^4.18.2"
   }
