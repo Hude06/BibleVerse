@@ -7,6 +7,11 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
   alert("Not Saved")
   console.log('App is not in standalone mode');
 }
+if (window.navigator.standalone) {
+  // The app is running in standalone mode (launched from the home screen on iOS)
+  console.log('App is running in standalone mode on iOS');
+  alert("From Home")
+}
 
 const apiUrl = 'https://labs.bible.org/api/?passage=random&type=json';
 let currentReel = 2;
