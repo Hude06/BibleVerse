@@ -1,30 +1,11 @@
-function showAddToHomeScreenButton() {
-  // Display your custom button or notification here
-  // For example, you can show a button with an "Add to Home Screen" label
-  const addToHomeScreenButton = document.getElementById('add-to-home-screen-button');
-  addToHomeScreenButton.style.display = 'block';
-
-  addToHomeScreenButton.addEventListener('click', () => {
-    // Show the installation prompt
-    const deferredPrompt = window.deferredPrompt;
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-
-        // Clear the deferred prompt
-        window.deferredPrompt = null;
-      });
-    }
-  });
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  // The app is running in standalone mode (launched from the home screen)
+  console.log('App is in standalone mode');
+} else {
+  // The app is not running in standalone mode
+  console.log('App is not in standalone mode');
 }
-showAddToHomeScreenButton();
+
 const apiUrl = 'https://labs.bible.org/api/?passage=random&type=json';
 let currentReel = 2;
 // Create a new reel element
