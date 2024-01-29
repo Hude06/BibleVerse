@@ -6,6 +6,10 @@ h1 {
     position: absolute;
     color: white;
 }
+#add-to-home-screen-button {
+    width: 20px;
+    height: 20px;
+}
 .actions {
     position: relative;
     display: flex;
