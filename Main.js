@@ -1,6 +1,7 @@
 if (window.matchMedia('(display-mode: standalone)').matches) {
   // The app is running in standalone mode (launched from the home screen)
   console.log('App is in standalone mode');
+  alert("Saved to home screen")
 } else {
   // The app is not running in standalone mode
   console.log('App is not in standalone mode');
